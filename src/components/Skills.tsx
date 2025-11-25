@@ -86,7 +86,7 @@ const Skills: React.FC = () => {
         {[...Array(segments)].map((_, i) => (
           <div
             key={i}
-            className={`h-full flex-1 transform skew-x-[-12deg] ${
+            className={`h-full flex-1 transform -skew-x-12 ${
               i < filled
                 ? "bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.5)]"
                 : "bg-slate-800/50"
@@ -101,11 +101,11 @@ const Skills: React.FC = () => {
     <section
       ref={ref}
       id="skills"
-      className="py-24 relative overflow-hidden bg-[#030014]"
+      className="py-24 relative overflow-hidden bg-void-black"
     >
       {/* --- BACKGROUND GRID & DECORATION --- */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px]"></div>
+      <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-cyan-500/50 to-transparent" />
       <div className="absolute bottom-0 right-0 w-64 h-64 bg-purple-500/10 blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -126,7 +126,7 @@ const Skills: React.FC = () => {
             className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight"
           >
             TECHNICAL{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-purple-500">
               ARSENAL
             </span>
           </motion.h2>
@@ -159,7 +159,7 @@ const Skills: React.FC = () => {
                 }} // Cut corner effect
               >
                 {/* Active Scanline Effect */}
-                <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                <div className="absolute inset-0 bg-linear-to-b from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                 <div className="absolute top-0 left-0 w-full h-px bg-cyan-400/50 transform -translate-y-full group-hover:translate-y-[400px] transition-transform duration-[1.5s] ease-linear" />
 
                 {/* Header */}
