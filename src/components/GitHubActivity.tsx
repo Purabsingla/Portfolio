@@ -1,5 +1,6 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
+import { fetchGithubStatsREST } from "./GithubStats";
 import {
   Github,
   GitCommit,
@@ -9,6 +10,13 @@ import {
   Terminal,
   Activity,
 } from "lucide-react";
+
+export interface Gitstats {
+  activeRepos: number;
+  repoStars: number;
+  pullRequests: number;
+  totalCommits: number;
+}
 
 const GitHubActivity: React.FC = () => {
   const ref = useRef(null);
@@ -41,17 +49,43 @@ const GitHubActivity: React.FC = () => {
     "> Traffic spike detected: PORT_3000",
   ];
 
+  const [Stats, setStats] = useState<Gitstats>({
+    activeRepos: 0,
+    repoStars: 0,
+    pullRequests: 0,
+    totalCommits: 0,
+  });
+
+  useEffect(() => {
+    fetchGithubStatsREST().then((data: Gitstats) => setStats(data));
+  }, []);
+
   // 3. Stats Data
   const stats = [
-    { label: "TOTAL_COMMITS", value: "1,342", icon: GitCommit, color: "green" },
+    {
+      label: "TOTAL_COMMITS",
+      value: Stats.totalCommits,
+      icon: GitCommit,
+      color: "green",
+    },
     {
       label: "PULL_REQUESTS",
-      value: "48",
+      value: Stats.pullRequests,
       icon: GitPullRequest,
       color: "purple",
     },
-    { label: "REPO_STARS", value: "126", icon: Star, color: "yellow" },
-    { label: "ACTIVE_REPOS", value: "12", icon: Cpu, color: "cyan" },
+    {
+      label: "REPO_STARS",
+      value: Stats.repoStars,
+      icon: Star,
+      color: "yellow",
+    },
+    {
+      label: "ACTIVE_REPOS",
+      value: Stats.activeRepos,
+      icon: Cpu,
+      color: "cyan",
+    },
   ];
 
   return (
