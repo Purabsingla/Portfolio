@@ -129,7 +129,7 @@ const Hero: React.FC = () => {
             transition={{ delay: 1 }}
             className="flex flex-wrap gap-4"
           >
-            <a href={"resume/PurabResumeee.pdf"} target="_blank">
+            <a href={"resume/PURABRESUME.pdf"} target="_blank">
               <button className="group relative px-8 py-4 bg-white text-black font-bold rounded-full overflow-hidden hover:scale-105 transition-transform duration-300">
                 <div className="absolute inset-0 bg-linear-to-r from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 mix-blend-overlay"></div>
                 <span className="relative flex items-center gap-2">
